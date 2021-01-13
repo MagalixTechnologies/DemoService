@@ -5,4 +5,15 @@ jobs:
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+      - run:
+          name: KubeGuard
+          command: |
+            curl -X POST \
+                --data-binary "@./minikube/bad-deployment.yaml" \
+                -H "Content-Type: application/octet-stream" \
+                -o res.json \
+                https://console.magalix.com/api/v1/kubeguard/4a22d5f3-e3cd-469d-aee0-683b4adc4f79/d39d1447-c59f-4c77-987b-228577a0d900
+            echo "===KubeGuard==="
+            jq 'if .violations then .violations | .[] | .msg else "No Violations" end' res.json
+            jq -e '[select(.has_violations == false)] | any' res.json
+ 
