@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout # check out the code in the project directory
       - run:
+          name: Directory
+          command: pwd && ls -l 
+      - run:
           name: KubeGuard
           command: |
             curl -X POST \
