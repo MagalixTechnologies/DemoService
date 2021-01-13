@@ -9,7 +9,7 @@ jobs:
           name: KubeGuard
           command: |
             curl -X POST \
-                --data-binary "@./minikube/bad-deployment.yaml" \
+                --data-binary "@./minikube/good-deployment.yaml" \
                 -H "Content-Type: application/octet-stream" \
                 -o res.json \
                 https://console.magalix.com/api/v1/kubeguard/4a22d5f3-e3cd-469d-aee0-683b4adc4f79/d39d1447-c59f-4c77-987b-228577a0d900
