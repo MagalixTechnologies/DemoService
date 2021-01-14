@@ -8,7 +8,7 @@ jobs:
       - run:
           name: KubeGuard
           command: |
-            curl -X POST \
+            curl -sX POST \
                 --data-binary "@./minikube/bad-deployment.yml" \
                 -H "Content-Type: application/octet-stream" \
                 -o res.json \
