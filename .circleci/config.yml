@@ -13,7 +13,7 @@ jobs:
                 -H "Content-Type: application/octet-stream" \
                 -o res.json \
                 $URL
-            echo "===KubeGuard==="
-            jq 'if .violations then .violations | .[] | .msg else "No Violations" end' res.json
-            jq -e '[select(.has_violations == false)] | any' res.json
+            echo -e "\n===KubeGuard===\n"
+            jq 'if .violations then .violations  else "No Violations" end' res.json
+            jq -e '[select(.has_violations == false)] | any' > /dev/null res.json
  
