@@ -33,6 +33,7 @@ spec:
       containers:
       - name: demoservice
         image: airwavetechio/demoservice:v0.0.1
+   
         env:
           - name: PORT
             value: '5000'
