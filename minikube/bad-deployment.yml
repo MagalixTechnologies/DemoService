@@ -25,8 +25,8 @@ spec:
         - containerPort: 5000
           name: liveness-port
         securityContext:
-          privileged: false
-          allowPrivilegeEscalation: false
+          privileged: true
+          allowPrivilegeEscalation: true
           runAsUser: 1000
           runAsGroup: 1000
           fsGroup: 1000
