@@ -25,7 +25,7 @@ spec:
         - containerPort: 5000
           name: liveness-port
         securityContext:
-          privileged: true
-          allowPrivilegeEscalation: true
+          privileged: false
+          allowPrivilegeEscalation: false
           capabilities: 
             add: ["SYS_ADMIN"]
