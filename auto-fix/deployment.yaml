@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoservice
+  labels:
+    app: demoservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoservice
+  template:
+    metadata: 
+      labels:
+        app: demoservice
+    spec:
+      containers:
+      - name: demoservice
+        command: ["node", "app.js"]
+        image: airwavetechio/demoservice:v0.0.2
+        env:
+          - name: PORT
+            value: "5000"
+        ports:
+        - containerPort: 5000
+          name: liveness-port
+        securityContext:
+          privileged: true
+          allowPrivilegeEscalation: true
+          readOnlyRootFilesystem: true
+          runAsUser: 1000
+          runAsGroup: 1000
+          fsGroup: 1000
+          capabilities: 
+            add: ["SYS_ADMIN"]
