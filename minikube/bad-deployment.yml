@@ -10,25 +10,26 @@ spec:
     matchLabels:
       app: demoservice
   template:
-    metadata: 
+    metadata:
       labels:
         app: demoservice
     spec:
       containers:
-      - name: demoservice
-        command: ["node", "app.js"]
-        image: airwavetechio/demoservice:v0.0.2
-        env:
-          - name: PORT
-            value: "5000"
-        ports:
-        - containerPort: 5000
-          name: liveness-port
-        securityContext:
-          privileged: true
-          allowPrivilegeEscalation: true
-          runAsUser: 1000
-          runAsGroup: 1000
-          fsGroup: 1000
-          capabilities: 
-            add: ["SYS_ADMIN"]
+        - name: demoservice
+          command: ["node", "app.js"]
+          image: airwavetechio/demoservice:v0.0.2
+          env:
+            - name: PORT
+              value: "5000"
+          ports:
+            - containerPort: 5000
+              name: liveness-port
+          securityContext:
+            privileged: false
+            allowPrivilegeEscalation: false
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+            capabilities:
+              add: ["SYS_ADMIN"]
+
