@@ -1,4 +1,8 @@
 # DemoService
+![Github Action Result](https://github.com/MagalixTechnologies/demoservice/actions/workflows/main.yml/badge.svg)
+
+
+
 This container is using express to host some js on port 5000.
 
 ## To build the container locally
