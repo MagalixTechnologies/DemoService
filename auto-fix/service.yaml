@@ -6,12 +6,10 @@ spec:
   selector:
     app: MyApp
   ports:
-    - protocol:
-        - HTTPS
+    - protocol: TCP
       port: 80
       targetPort: 8888
-    - protocol:
-        - HTTPS
+    - protocol: UDP
       port: 53
       targetPort: 53
 
