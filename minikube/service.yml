@@ -6,6 +6,7 @@ spec:
   selector:
     app: demoservice
   ports:
-  - port: 5000
-    protocol: TCP
-    
+    - port: 5000
+      protocol:
+        - HTTPS
+
