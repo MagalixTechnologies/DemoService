@@ -7,11 +7,11 @@ spec:
     app: MyApp
   ports:
     - protocol:
-        - HTTPS
+        - TCP
       port: 80
       targetPort: 8888
     - protocol:
-        - HTTPS
+        - UDP
       port: 53
       targetPort: 53
 
