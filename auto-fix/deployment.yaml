@@ -20,7 +20,7 @@ spec:
           image: airwavetechio/demoservice:v0.0.2
           env:
             - name: PORT
-              value: "5000"
+              value: "5001"
           ports:
             - containerPort: 5000
               name: liveness-port
