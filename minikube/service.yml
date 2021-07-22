@@ -7,5 +7,5 @@ spec:
     app: demoservice
   ports:
     - port: 5000
-      protocol: HTTPS
+      protocol: TCP
 
