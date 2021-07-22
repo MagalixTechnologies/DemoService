@@ -9,7 +9,7 @@ jobs:
           name: KubeGuard
           command: |
             curl -sX POST \
-                --data-binary "@./minikube/bad-deployment.yml" \
+                --data-binary "@./clean/deployment.yml" \
                 -H "Content-Type: application/octet-stream" \
                 -o res.json \
                 $URL

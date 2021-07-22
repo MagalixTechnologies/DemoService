@@ -14,10 +14,15 @@ spec:
       labels:
         app: demoservice
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        runAsNonRoot: true
       containers:
         - name: demoservice
           command: ["node", "app.js"]
-          image: airwavetechio/demoservice:v0.0.2
+          image: magalix/demoservice:v0.0.2
           env:
             - name: PORT
               value: "5000"
@@ -27,9 +32,9 @@ spec:
           securityContext:
             privileged: false
             allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
             runAsUser: 1000
             runAsGroup: 1000
             fsGroup: 1000
-            capabilities:
-              add: ["SYS_ADMIN"]
+            runAsNonRoot: true
 
